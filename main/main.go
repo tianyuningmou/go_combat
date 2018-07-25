@@ -1,3 +1,16 @@
+/*
+
+Copyright () 2018
+
+All rights reserved
+
+FILE: main.go
+AUTHOR: tianyuningmou
+EMAIL: tianyuningmou2009@126.com
+DATE CREATED:  @Time : 2018/7/25 下午1:06
+
+*/
+
 package main
 
 import (
