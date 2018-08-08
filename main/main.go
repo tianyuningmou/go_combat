@@ -18,9 +18,11 @@ import (
 	"fmt"
 	"strings"
 	"log"
+	"html/template"
 )
 
 func sayHelloName(w http.ResponseWriter, r *http.Request)  {
+	// 解析url传递的参数，对于POST请求则解析响应包的主体
 	r.ParseForm()
 	fmt.Println(r.Form)
 	fmt.Println("path", r.URL.Path)
@@ -33,8 +35,21 @@ func sayHelloName(w http.ResponseWriter, r *http.Request)  {
 	fmt.Fprintf(w, "Hello everyone!")
 }
 
+func login(w http.ResponseWriter, r *http.Request) {
+	fmt.Println("method:", r.Method)
+	if r.Method == "GET" {
+		t, _ := template.ParseFiles("main/login.gtpl")
+		t.Execute(w, nil)
+	} else {
+		r.ParseForm()
+		fmt.Println("username", r.Form["username"])
+		fmt.Println("password", r.Form["password"])
+	}
+}
+
 func main()  {
 	http.HandleFunc("/", sayHelloName)
+	http.HandleFunc("/login", login)
 	err := http.ListenAndServe(":9090", nil)
 	if err != nil {
 		log.Fatal("ListenAndServer:", err)
