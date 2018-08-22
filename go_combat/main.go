@@ -4,7 +4,7 @@ Copyright () 2018
 
 All rights reserved
 
-FILE: main.go
+FILE: go_combat.go
 AUTHOR: tianyuningmou
 EMAIL: tianyuningmou2009@126.com
 DATE CREATED:  @Time : 2018/7/25 下午1:06
@@ -38,7 +38,7 @@ func sayHelloName(w http.ResponseWriter, r *http.Request)  {
 func login(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("method:", r.Method)
 	if r.Method == "GET" {
-		t, _ := template.ParseFiles("main/login.gtpl")
+		t, _ := template.ParseFiles("go_combat/login.gtpl")
 		t.Execute(w, nil)
 	} else {
 		r.ParseForm()
