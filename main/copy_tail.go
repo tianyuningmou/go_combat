@@ -11,7 +11,7 @@ DATE CREATED:  @Time : 2018/8/21 下午4:37
 
 */
 
-package go_functions
+package main
 
 import (
 	"os"
