@@ -14,11 +14,11 @@ DATE CREATED:  @Time : 2018/7/25 下午1:06
 package main
 
 import (
-	"net/http"
 	"fmt"
-	"strings"
-	"log"
 	"html/template"
+	"log"
+	"net/http"
+	"strings"
 )
 
 func sayHelloName(w http.ResponseWriter, r *http.Request)  {
